@@ -1,10 +1,25 @@
+import Image from "next/image";
 import RevealWrapper from "@/components/RevealWrapper";
 
 const stats = [
-  { value: "−87%", label: "de temps de gestion administrative" },
-  { value: "+34%", label: "de chiffre d'affaires en 6 mois" },
-  { value: "24/7", label: "de disponibilité pour les clients" },
-  { value: "0 oubli", label: "de réservation ou de document" },
+  { value: "45", label: "leads trackés en temps réel" },
+  { value: "4 300€", label: "de pipeline visible en un coup d'œil" },
+  { value: "< 2 min", label: "de réponse client (contre 3h avant)" },
+  { value: "1 700€", label: "de réservations confirmées ce mois" },
+  { value: "0 oubli", label: "de lead depuis le déploiement" },
+];
+
+const screenshots = [
+  {
+    src: "/screenshots/dashboard-pipeline.png",
+    alt: "Vue pipeline — 45 leads et 4 300€ trackés",
+    caption: "Vue pipeline — 45 leads et 4 300€ trackés en temps réel",
+  },
+  {
+    src: "/screenshots/dashboard-reservations.png",
+    alt: "Vue réservations — 1 700€ confirmés ce mois",
+    caption: "Vue réservations — 1 700€ confirmés, zéro lead oublié",
+  },
 ];
 
 const problems = [
@@ -162,6 +177,61 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── SYSTÈME EN ACTION ── */}
+        <section className="py-32 px-6 bg-neutral-50">
+          <div className="max-w-5xl mx-auto">
+            <p className="reveal text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-4 text-center">
+              Le système en action
+            </p>
+            <h2 className="reveal text-4xl sm:text-5xl font-bold leading-tight text-neutral-900 text-center">
+              Le vrai dashboard Harmonie Yacht
+            </h2>
+            <p className="reveal mt-4 text-lg text-neutral-500 text-center max-w-xl mx-auto">
+              Pas une maquette — notre système en production depuis 6 mois.
+            </p>
+
+            {/* Desktop : 2 colonnes — Mobile : carousel scroll-snap */}
+            <div className="mt-14 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 scroll-smooth [-webkit-overflow-scrolling:touch]">
+              {screenshots.map((s) => (
+                <div
+                  key={s.src}
+                  className="reveal shrink-0 w-[85vw] sm:w-auto snap-center flex flex-col"
+                >
+                  <div className="relative rounded-2xl overflow-hidden border border-neutral-200 shadow-[0_8px_40px_rgba(0,0,0,0.10)] bg-neutral-200 aspect-[16/10]">
+                    <Image
+                      src={s.src}
+                      alt={s.alt}
+                      fill
+                      sizes="(max-width: 640px) 85vw, 50vw"
+                      className="object-cover object-top"
+                      placeholder="empty"
+                      onError={() => {}}
+                    />
+                    {/* Fallback placeholder visible si l'image est absente */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-neutral-100 text-neutral-300 [img+&]:hidden">
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <path d="M3 9h18M9 21V9" />
+                      </svg>
+                      <span className="text-xs tracking-wide">Screenshot à venir</span>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-sm text-neutral-500 text-center leading-snug px-2">
+                    {s.caption}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Indicateur scroll mobile */}
+            <div className="mt-5 flex justify-center gap-2 sm:hidden" aria-hidden>
+              {screenshots.map((_, i) => (
+                <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? "bg-neutral-900" : "bg-neutral-300"}`} />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── RÉSULTATS ── */}
         <section id="resultats" className="py-32 px-6 bg-neutral-950 text-white">
           <div className="max-w-5xl mx-auto text-center">
@@ -174,10 +244,10 @@ export default function Home() {
             <p className="reveal mt-6 text-lg text-neutral-400 max-w-lg mx-auto">
               Mesurés sur 6 mois après déploiement complet du système IA.
             </p>
-            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="mt-16 grid grid-cols-2 lg:grid-cols-3 gap-6">
               {stats.map((s) => (
                 <div
-                  key={s.value}
+                  key={s.label}
                   className="reveal p-8 rounded-2xl bg-neutral-900 border border-neutral-800"
                 >
                   <p className="text-4xl font-bold text-white mb-2">{s.value}</p>
