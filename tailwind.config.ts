@@ -9,25 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          "-apple-system",
-          "BlinkMacSystemFont",
-          '"SF Pro Display"',
-          '"Helvetica Neue"',
-          "Arial",
-          "sans-serif",
-        ],
+        sans: ["var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        display: ["var(--font-playfair)", "Georgia", "serif"],
       },
       colors: {
-        accent: "#0071e3",
+        navy: "#0A1628",
+        gold: "#C9A84C",
+        cream: "#F5F0E8",
+        "off-white": "#FAFAF8",
       },
       animation: {
         "fade-up": "fadeUp 0.8s ease forwards",
+        wave: "wave 14s linear infinite",
       },
       keyframes: {
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(32px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        wave: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
     },

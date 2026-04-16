@@ -76,86 +76,117 @@ const steps = [
   { label: "Suivi post-séjour", sub: "avis, fidélisation, upsell automatique" },
 ];
 
+function GoldDivider() {
+  return (
+    <div className="flex justify-center">
+      <hr className="w-[60px] border-0 border-t border-gold/40" />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <RevealWrapper>
       <main className="min-h-screen font-sans">
 
         {/* ── HERO ── */}
-        <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center bg-white overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(0,113,227,0.07),transparent)]" />
+        <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center bg-navy overflow-hidden">
+
+          {/* Radial glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(201,168,76,0.10),transparent)]" />
+
+          {/* Animated gold wave */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
+            <svg
+              className="absolute bottom-0 left-0 w-[200%] animate-wave"
+              style={{ opacity: 0.08 }}
+              viewBox="0 0 2880 160"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0,80 C180,130 360,30 540,80 C720,130 900,30 1080,80 C1260,130 1440,30 1620,80 C1800,130 1980,30 2160,80 C2340,130 2520,30 2700,80 C2790,105 2850,65 2880,80 L2880,160 L0,160 Z"
+                fill="#C9A84C"
+              />
+            </svg>
+          </div>
+
           <div className="relative max-w-4xl mx-auto">
-            <p className="reveal inline-block mb-6 text-xs font-semibold tracking-widest uppercase text-neutral-400 border border-neutral-200 rounded-full px-4 py-1.5">
+            <p className="reveal inline-block mb-6 text-xs font-semibold tracking-widest uppercase text-gold border border-gold/40 rounded-full px-4 py-1.5">
               Case Study — Location de Yacht
             </p>
-            <h1 className="reveal mt-2 text-5xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight text-neutral-900">
+            <h1 className="reveal mt-2 font-display text-5xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight text-cream">
               Comment j'ai automatisé
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 to-neutral-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-gold/60">
                 ma location de yacht
               </span>
               <br />
               avec l'IA
             </h1>
-            <p className="reveal mt-8 text-xl sm:text-2xl text-neutral-500 max-w-2xl mx-auto leading-relaxed">
-              De <strong className="text-neutral-900">40h de gestion manuelle par semaine</strong> à un système entièrement autonome — sans recruter, sans sacrifier la qualité client.
+            <p className="reveal mt-8 text-xl sm:text-2xl text-cream/70 max-w-2xl mx-auto leading-relaxed">
+              De <strong className="text-cream">40h de gestion manuelle par semaine</strong> à un système entièrement autonome — sans recruter, sans sacrifier la qualité client.
             </p>
             <div className="reveal mt-12 flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="#cta"
-                className="inline-flex items-center justify-center px-8 py-4 bg-neutral-900 text-white rounded-full text-base font-medium hover:bg-neutral-700 transition-colors duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gold text-navy rounded-full text-base font-semibold hover:bg-gold/90 transition-colors duration-200"
               >
                 Voir comment ça marche
               </a>
               <a
                 href="#resultats"
-                className="inline-flex items-center justify-center px-8 py-4 border border-neutral-200 text-neutral-700 rounded-full text-base font-medium hover:border-neutral-400 transition-colors duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 border border-gold/40 text-cream rounded-full text-base font-medium hover:border-gold/80 transition-colors duration-200"
               >
                 Voir les résultats →
               </a>
             </div>
           </div>
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-neutral-300">
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cream/30">
             <span className="text-xs tracking-widest uppercase">Défiler</span>
-            <div className="w-px h-10 bg-gradient-to-b from-neutral-300 to-transparent" />
+            <div className="w-px h-10 bg-gradient-to-b from-cream/30 to-transparent" />
           </div>
         </section>
 
+        <GoldDivider />
+
         {/* ── PROBLÈME ── */}
-        <section className="py-32 px-6 bg-neutral-950 text-white">
+        <section className="py-32 px-6 bg-navy text-cream">
           <div className="max-w-5xl mx-auto">
-            <p className="reveal text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-4">
+            <p className="reveal text-xs font-semibold tracking-widest uppercase text-gold mb-4">
               Le problème
             </p>
-            <h2 className="reveal text-4xl sm:text-5xl font-bold leading-tight max-w-2xl">
+            <h2 className="reveal font-display text-4xl sm:text-5xl font-bold leading-tight max-w-2xl">
               Avant l'IA, chaque journée ressemblait à ça.
             </h2>
-            <p className="reveal mt-6 text-lg text-neutral-400 max-w-xl">
+            <p className="reveal mt-6 text-lg text-cream/60 max-w-xl">
               Gérer une flotte de yachts manuellement, c'est une charge mentale et administrative écrasante. Voici ce que nous vivions chaque semaine.
             </p>
             <div className="mt-16 grid sm:grid-cols-2 gap-6">
               {problems.map((p) => (
                 <div
                   key={p.title}
-                  className="reveal p-8 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neutral-600 transition-colors duration-300"
+                  className="reveal p-8 rounded-2xl bg-navy border border-gold/20 hover:border-gold/50 transition-colors duration-300"
                 >
                   <div className="text-3xl mb-4">{p.icon}</div>
-                  <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
-                  <p className="text-neutral-400 text-sm leading-relaxed">{p.desc}</p>
+                  <h3 className="text-lg font-semibold mb-2 text-cream">{p.title}</h3>
+                  <p className="text-cream/60 text-sm leading-relaxed">{p.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        <GoldDivider />
+
         {/* ── SOLUTION ── */}
-        <section className="py-32 px-6 bg-white">
+        <section className="py-32 px-6 bg-off-white">
           <div className="max-w-5xl mx-auto">
-            <p className="reveal text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-4">
+            <p className="reveal text-xs font-semibold tracking-widest uppercase text-gold mb-4">
               La solution
             </p>
-            <h2 className="reveal text-4xl sm:text-5xl font-bold leading-tight max-w-2xl text-neutral-900">
-              L'infrastructure IA complète pour la nautisme.
+            <h2 className="reveal font-display text-4xl sm:text-5xl font-bold leading-tight max-w-2xl text-navy">
+              L'infrastructure IA complète pour le nautisme.
             </h2>
             <p className="reveal mt-6 text-lg text-neutral-500 max-w-xl">
               Nous avons conçu un système modulaire qui automatise chaque friction du métier — sans changer vos outils existants.
@@ -164,12 +195,12 @@ export default function Home() {
               {solutions.map((s) => (
                 <div
                   key={s.step}
-                  className="reveal group p-8 rounded-2xl border border-neutral-100 hover:border-neutral-200 hover:shadow-lg transition-all duration-300"
+                  className="reveal group p-8 rounded-2xl border border-gold/20 hover:border-gold/50 hover:shadow-lg transition-all duration-300"
                 >
-                  <p className="text-5xl font-bold text-neutral-100 group-hover:text-neutral-200 transition-colors mb-4">
+                  <p className="text-5xl font-bold font-display text-gold/20 group-hover:text-gold/40 transition-colors mb-4">
                     {s.step}
                   </p>
-                  <h3 className="text-lg font-semibold text-neutral-900 mb-2">{s.title}</h3>
+                  <h3 className="text-lg font-semibold text-navy mb-2">{s.title}</h3>
                   <p className="text-neutral-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               ))}
@@ -177,13 +208,15 @@ export default function Home() {
           </div>
         </section>
 
+        <GoldDivider />
+
         {/* ── SYSTÈME EN ACTION ── */}
-        <section className="py-32 px-6 bg-neutral-50">
+        <section className="py-32 px-6 bg-off-white">
           <div className="max-w-5xl mx-auto">
-            <p className="reveal text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-4 text-center">
+            <p className="reveal text-xs font-semibold tracking-widest uppercase text-gold mb-4 text-center">
               Le système en action
             </p>
-            <h2 className="reveal text-4xl sm:text-5xl font-bold leading-tight text-neutral-900 text-center">
+            <h2 className="reveal font-display text-4xl sm:text-5xl font-bold leading-tight text-navy text-center">
               Le vrai dashboard Harmonie Yacht
             </h2>
             <p className="reveal mt-4 text-lg text-neutral-500 text-center max-w-xl mx-auto">
@@ -205,57 +238,61 @@ export default function Home() {
             {/* Indicateur scroll mobile */}
             <div className="mt-5 flex justify-center gap-2 sm:hidden" aria-hidden>
               {screenshots.map((_, i) => (
-                <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? "bg-neutral-900" : "bg-neutral-300"}`} />
+                <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? "bg-gold" : "bg-gold/30"}`} />
               ))}
             </div>
           </div>
         </section>
 
+        <GoldDivider />
+
         {/* ── RÉSULTATS ── */}
-        <section id="resultats" className="py-32 px-6 bg-neutral-950 text-white">
+        <section id="resultats" className="py-32 px-6 bg-navy text-cream">
           <div className="max-w-5xl mx-auto text-center">
-            <p className="reveal text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-4">
+            <p className="reveal text-xs font-semibold tracking-widest uppercase text-gold mb-4">
               Les résultats
             </p>
-            <h2 className="reveal text-4xl sm:text-5xl font-bold leading-tight">
+            <h2 className="reveal font-display text-4xl sm:text-5xl font-bold leading-tight">
               Des chiffres qui parlent d'eux-mêmes.
             </h2>
-            <p className="reveal mt-6 text-lg text-neutral-400 max-w-lg mx-auto">
+            <p className="reveal mt-6 text-lg text-cream/60 max-w-lg mx-auto">
               Mesurés sur 6 mois après déploiement complet du système IA.
             </p>
             <div className="mt-16 grid grid-cols-2 lg:grid-cols-3 gap-6">
               {stats.map((s) => (
                 <div
                   key={s.label}
-                  className="reveal p-8 rounded-2xl bg-neutral-900 border border-neutral-800"
+                  className="reveal p-8 rounded-2xl bg-navy border border-gold/30"
                 >
-                  <p className="text-4xl font-bold text-white mb-2">{s.value}</p>
-                  <p className="text-sm text-neutral-400 leading-snug">{s.label}</p>
+                  <p className="text-4xl font-bold font-display text-gold mb-2">{s.value}</p>
+                  <p className="text-sm text-cream/60 leading-snug">{s.label}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        <GoldDivider />
+
         {/* ── COMMENT ÇA MARCHE ── */}
-        <section className="py-32 px-6 bg-white">
+        <section className="py-32 px-6 bg-off-white">
           <div className="max-w-3xl mx-auto">
-            <p className="reveal text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-4 text-center">
+            <p className="reveal text-xs font-semibold tracking-widest uppercase text-gold mb-4 text-center">
               Comment ça marche
             </p>
-            <h2 className="reveal text-4xl sm:text-5xl font-bold leading-tight text-neutral-900 text-center">
+            <h2 className="reveal font-display text-4xl sm:text-5xl font-bold leading-tight text-navy text-center">
               Le flow en 5 étapes.
             </h2>
             <div className="mt-16 relative">
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-neutral-100" />
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-gold/20" />
               <ol className="space-y-10">
                 {steps.map((s, i) => (
                   <li key={i} className="reveal relative flex gap-6 pl-16">
-                    <div className="absolute left-0 top-0 flex items-center justify-center w-12 h-12 rounded-full bg-neutral-900 text-white text-sm font-bold shrink-0">
+                    <div className="absolute left-0 top-0 flex items-center justify-center w-12 h-12 rounded-full bg-gold text-navy text-sm font-bold shrink-0">
                       {i + 1}
                     </div>
                     <div className="pt-2">
-                      <p className="text-lg font-semibold text-neutral-900">{s.label}</p>
+                      <p className="text-lg font-semibold text-navy">{s.label}</p>
                       <p className="text-sm text-neutral-400 mt-1">{s.sub}</p>
                     </div>
                   </li>
@@ -265,35 +302,37 @@ export default function Home() {
           </div>
         </section>
 
+        <GoldDivider />
+
         {/* ── CTA ── */}
-        <section id="cta" className="py-32 px-6 bg-neutral-950 text-white">
+        <section id="cta" className="py-32 px-6 bg-navy text-cream">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="reveal text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-4">
+            <p className="reveal text-xs font-semibold tracking-widest uppercase text-gold mb-4">
               Passez à l'action
             </p>
-            <h2 className="reveal text-4xl sm:text-5xl font-bold leading-tight">
+            <h2 className="reveal font-display text-4xl sm:text-5xl font-bold leading-tight">
               Vous voulez la même chose pour votre activité ?
             </h2>
-            <p className="reveal mt-6 text-lg text-neutral-400 max-w-xl mx-auto">
+            <p className="reveal mt-6 text-lg text-cream/60 max-w-xl mx-auto">
               En 30 minutes d'échange, nous identifions les automatisations les plus impactantes pour votre activité nautique — sans engagement.
             </p>
             <div className="reveal mt-12">
               <a
                 href="mailto:contact@doc-hy.com"
-                className="inline-flex items-center justify-center px-10 py-5 bg-white text-neutral-900 rounded-full text-lg font-semibold hover:bg-neutral-100 transition-colors duration-200"
+                className="inline-flex items-center justify-center px-10 py-5 bg-gold text-navy rounded-full text-lg font-semibold hover:bg-gold/90 transition-colors duration-200"
               >
                 Réserver un appel gratuit →
               </a>
             </div>
-            <p className="reveal mt-6 text-sm text-neutral-600">
+            <p className="reveal mt-6 text-sm text-cream/40">
               Réponse sous 24h · Aucune obligation
             </p>
           </div>
         </section>
 
         {/* ── FOOTER ── */}
-        <footer className="py-8 px-6 border-t border-neutral-100 text-center">
-          <p className="text-xs text-neutral-400">
+        <footer className="py-8 px-6 border-t border-gold/20 text-center bg-off-white">
+          <p className="text-xs text-gold/50">
             © {new Date().getFullYear()} DOC-HY · Automatisation IA pour le nautisme
           </p>
         </footer>

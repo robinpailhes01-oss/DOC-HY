@@ -14,9 +14,9 @@ export default function ScreenshotCard({ src, alt, caption }: Props) {
 
   return (
     <div className="reveal shrink-0 w-[85vw] sm:w-auto snap-center flex flex-col">
-      <div className="relative rounded-2xl overflow-hidden border border-neutral-200 shadow-[0_8px_40px_rgba(0,0,0,0.10)] bg-neutral-100 aspect-[16/10]">
+      <div className="relative rounded-2xl overflow-hidden border border-gold/50 shadow-[0_8px_40px_rgba(201,168,76,0.12)] bg-neutral-100 aspect-[16/10]">
         {failed ? (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-neutral-300">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-gold/40">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <rect x="3" y="3" width="18" height="18" rx="2" />
               <path d="M3 9h18M9 21V9" />
