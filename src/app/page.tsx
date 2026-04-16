@@ -3,7 +3,11 @@ import ScreenshotCard from "@/components/ScreenshotCard";
 
 const stats = [
   { value: "45", label: "leads trackés en temps réel" },
-  { value: "4 300€", label: "de pipeline visible en un coup d'œil" },
+  {
+    value: "4 300€",
+    label: "de chiffre d'affaires potentiel identifié et suivi en temps réel",
+    note: "Chaque prospect a une valeur estimée — le système calcule automatiquement votre CA prévisionnel à tout moment.",
+  },
   { value: "< 2 min", label: "de réponse client (contre 3h avant)" },
   { value: "1 700€", label: "de réservations confirmées ce mois" },
   { value: "0 oubli", label: "de lead depuis le déploiement" },
@@ -58,11 +62,6 @@ const solutions = [
   },
   {
     step: "03",
-    title: "Pricing dynamique",
-    desc: "Un modèle analyse la demande en temps réel, les événements locaux et l'historique pour optimiser les tarifs automatiquement.",
-  },
-  {
-    step: "04",
     title: "Dashboard centralisé",
     desc: "Toutes les réservations, documents et communications dans une seule interface. Vue complète en un coup d'œil.",
   },
@@ -266,6 +265,11 @@ export default function Home() {
                 >
                   <p className="text-4xl font-bold font-display text-gold mb-2">{s.value}</p>
                   <p className="text-sm text-cream/60 leading-snug">{s.label}</p>
+                  {"note" in s && s.note && (
+                    <p className="mt-3 text-xs text-cream/40 leading-relaxed border-t border-gold/20 pt-3">
+                      {s.note}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
