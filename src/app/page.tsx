@@ -6,10 +6,14 @@ const stats = [
   {
     value: "4 300€",
     label: "de chiffre d'affaires potentiel identifié et suivi en temps réel",
-    note: "Chaque prospect a une valeur estimée — le système calcule automatiquement votre CA prévisionnel à tout moment.",
+    note: "Chaque prospect a une valeur estimée — le système calcule automatiquement votre CA prévisionnel à tout moment. Chiffre propre à Harmonie Yacht. Chaque activité a ses propres résultats.",
   },
   { value: "< 2 min", label: "de réponse client (contre 3h avant)" },
-  { value: "1 700€", label: "de réservations confirmées ce mois" },
+  {
+    value: "1 700€",
+    label: "de réservations confirmées ce mois — visible en temps réel",
+    note: "Chiffre propre à Harmonie Yacht. Chaque activité a ses propres résultats.",
+  },
   { value: "0 oubli", label: "de lead depuis le déploiement" },
 ];
 
